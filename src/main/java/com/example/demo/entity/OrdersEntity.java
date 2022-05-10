@@ -24,6 +24,11 @@ public class OrdersEntity {
     @Basic
     @Column(name = "paymentID", nullable = true)
     private Integer paymentID;
+
+    @Basic
+    @Column(name = "total", nullable = true)
+    private int total;
+
     @OneToMany(mappedBy = "ordersByOrderId") //(fetch = FetchType.LAZY, optional = false)
     //@JoinColumn(name = "orderID", nullable = false)
     private List<OrderDetailEntity> orderDetailsByOrderId;
@@ -71,6 +76,13 @@ public class OrdersEntity {
         this.paymentID = paymentId;
     }
 
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
 
     public List<OrderDetailEntity> getOrderDetailsByOrderId() {
         return orderDetailsByOrderId;

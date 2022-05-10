@@ -1,10 +1,14 @@
 package com.example.demo.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
 import java.util.List;
-
+@Setter
+@Getter
 @Entity
 @Table(name = "\"Product\"")
 public class ProductEntity {
@@ -39,6 +43,10 @@ public class ProductEntity {
     @Basic
     @Column(name = "createTime", nullable = false)
     private Date createTime;
+    @Basic
+    @Column(name = "isDelete", nullable = false)
+    private boolean isDelete;
+
     @OneToMany(mappedBy = "productByProductId")
     private Collection<CustomerReviewsEntity> customerReviewsByProductId;
     @OneToMany(mappedBy = "productByProductId")//(fetch = FetchType.LAZY, optional = false)

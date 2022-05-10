@@ -19,9 +19,7 @@ public class OrderDetailEntity {
     @Basic
     @Column(name = "quantityOrder", nullable = true)
     private int quantityOrder;
-    @Basic
-    @Column(name = "total", nullable = true)
-    private int total;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "orderID", insertable = false, updatable = false)
     private OrdersEntity ordersByOrderId;
@@ -61,13 +59,6 @@ public class OrderDetailEntity {
         this.quantityOrder = quantityOrder;
     }
 
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
 
 
     public OrdersEntity getOrdersByOrderId() {
